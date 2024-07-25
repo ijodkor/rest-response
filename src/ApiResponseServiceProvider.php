@@ -12,6 +12,7 @@ class ApiResponseServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
+
     }
 
     /**
