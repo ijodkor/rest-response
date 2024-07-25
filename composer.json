@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Ijodkor\\LaravelApiResponse\\": "src/"
+            "Ijodkor\\ApiResponse\\": "src/"
         }
     },
     "authors": [
@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ijodkor\\LaravelApiResponse\\ApiResponseServiceProvider"
+                "Ijodkor\\ApiResponse\\ResponseServiceProvider"
             ]
         }
     }

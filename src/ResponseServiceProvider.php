@@ -1,10 +1,10 @@
 <?php
 
-namespace Ijodkor\LaravelApiResponse;
+namespace Ijodkor\ApiResponse;
 
 use Illuminate\Support\ServiceProvider;
 
-class ApiResponseServiceProvider extends ServiceProvider {
+class ResponseServiceProvider extends ServiceProvider {
 
     /**
      * Register any application services.

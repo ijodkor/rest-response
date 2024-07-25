@@ -1,8 +1,8 @@
 <?php
 
-namespace Ijodkor\LaravelApiResponse\Requests;
+namespace Ijodkor\ApiResponse\Requests;
 
-use Ijodkor\LaravelApiResponse\Responses\ApiResponse;
+use Ijodkor\ApiResponse\Responses\ApiResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;

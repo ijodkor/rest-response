@@ -1,8 +1,11 @@
 <?php
 
-namespace Ijodkor\LaravelApiResponse\Responses;
+namespace Ijodkor\ApiResponse\Responses;
 
+use Ijodkor\ApiResponse\Supporters\ListPaginator;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 trait ApiResponse {
 
@@ -10,7 +13,7 @@ trait ApiResponse {
         return response()->json([
             'success' => true,
             'data' => [...$data],
-            'msg' => $message
+            'message' => $message
         ]);
     }
 
@@ -18,7 +21,7 @@ trait ApiResponse {
         return response()->json([
             'success' => true,
             'data' => [...$data],
-            'msg' => $message
+            'message' => $message
         ], 201);
     }
 
@@ -26,7 +29,7 @@ trait ApiResponse {
         return response()->json([
             'success' => false,
             'errors' => $errors,
-            'msg' => $message
+            'message' => $message
         ], $status);
     }
 
@@ -34,22 +37,39 @@ trait ApiResponse {
         return response()->json([
             'success' => false,
             'errors' => $errors,
-            'msg' => $msg
-        ], 400);
+            'message' => $msg
+        ], 500);
     }
 
-    protected function unAuthorized($msg = "Kirishga ruxsat berilmagan"): JsonResponse {
+    protected function unAuthorized($message = "Kirishga ruxsat berilmagan"): JsonResponse {
         return response()->json([
             'success' => false,
-            'msg' => $msg
+            'message' => $message
         ], 401);
     }
 
-    protected function result($data = [], $msg = 'Muvaffaqiyatli'): JsonResponse {
+    /** Bonuses **/
+    protected function result($data = [], $message = 'Muvaffaqiyatli'): JsonResponse {
         return response()->json([
             'success' => true,
             'data' => $data,
-            'msg' => $msg
+            'message' => $message
         ], options: JSON_NUMERIC_CHECK);
+    }
+
+    protected function paginated($data, string $key, string|null $message = 'Muvaffaqiyatli'): JsonResponse {
+        if ($data instanceof LengthAwarePaginator) {
+            $data = new ListPaginator($data, $key);
+        } elseif ($data instanceof ResourceCollection) {
+            $data = new ListPaginator($data, $key);
+        }
+
+        return response()->json([
+            'status' => true,
+            'data' => [
+                $key => $data
+            ],
+            'message' => $message,
+        ]);
     }
 }
