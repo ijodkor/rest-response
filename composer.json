@@ -1,0 +1,39 @@
+{
+    "name": "ijodkor/laravel-api-response",
+    "description": "Response util for Laravel",
+    "type": "metapackage",
+    "keywords": [
+        "php",
+        "laravel",
+        "api",
+        "response"
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Ijodkor\\LaravelApiResponse\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "role": "Creator",
+            "name": "anvar",
+            "email": "anvarindastries@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ijodkor\\LaravelApiResponse\\ApiResponseServiceProvider.php"
+            ]
+        }
+    }
+}
