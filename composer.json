@@ -1,7 +1,7 @@
 {
     "name": "ijodkor/laravel-api-response",
     "description": "Response util for Laravel",
-    "type": "metapackage",
+    "type": "library",
     "keywords": [
         "php",
         "laravel",

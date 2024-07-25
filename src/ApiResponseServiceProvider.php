@@ -1,6 +1,6 @@
 <?php
 
-namespace Ijodkor\LaravelApiResponse\Providers;
+namespace Ijodkor\LaravelApiResponse;
 
 use Illuminate\Support\ServiceProvider;
 
