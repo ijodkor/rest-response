@@ -20,21 +20,5 @@ class ApiResponseServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot(): void {
-        if ($this->app->runningInConsole()) {
-            $this->commands([]);
-        }
-
-        $this->configurePublishing();
-    }
-
-    /**
-     * Configure publishing for the package.
-     *
-     * @return void
-     */
-    private function configurePublishing(): void {
-        if (!$this->app->runningInConsole()) {
-            return;
-        }
     }
 }
