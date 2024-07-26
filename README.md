@@ -8,8 +8,8 @@ as converting and formatting exceptions to JSON responses.
 
 ## Talablar (Requirements)
 
-- PHP ^7.4|8.1
-- Laravel ^10 | ^11
+- PHP ^|8.2
+- Laravel ^11
 
 ## Talqinlar mutonosibligi (Version Compatibility)
 
@@ -80,3 +80,4 @@ class UserRequest extends RestRequest {
 # Foydali havolalar (Links)
 
 - [Create Laravel package](https://laravel-news.com/building-your-own-laravel-packages)
+- [Markdown Tables](https://www.codecademy.com/resources/docs/markdown/tables)
