@@ -8,14 +8,16 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ListPaginator extends LengthAwarePaginator {
 
+    /**
+     * @var string $key
+     */
     private string $key;
 
     public function __construct(Paginator|ResourceCollection $paginator, string $key = "data") {
         $this->key = $key;
 
-        $options = [
-            'path' => $paginator->path()
-        ];
+        $options = ['path' => $paginator->path()];
+
         parent::__construct($paginator->items(), $paginator->total(), $paginator->perPage(), $paginator->currentPage(), $options);
     }
 

@@ -2,13 +2,13 @@
 
 namespace Ijodkor\ApiResponse\Requests;
 
-use Ijodkor\ApiResponse\Responses\ApiResponse;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Ijodkor\ApiResponse\Responses\RestResponse;
 
 class RestRequest extends FormRequest {
-    use ApiResponse;
+    use RestResponse;
 
     public function failedValidation(Validator $validator) {
         throw new HttpResponseException(

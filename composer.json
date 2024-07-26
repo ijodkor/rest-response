@@ -19,12 +19,12 @@
         {
             "role": "Creator",
             "name": "anvar",
-            "email": "anvarindastries@gmail.com"
+            "email": "mendasturchiman@gmail.com"
         }
     ],
     "require": {
         "php": "^8.1",
-        "illuminate/contracts": "^10.0"
+        "illuminate/contracts": "^v10.48.16"
     },
     "require-dev": {
         "orchestra/testbench": "^8.0",
