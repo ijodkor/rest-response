@@ -24,7 +24,7 @@
     ],
     "require": {
         "php": "^8.1",
-        "illuminate/contracts": "^v10.48.16"
+        "illuminate/contracts": "^v10.0.1"
     },
     "require-dev": {
         "orchestra/testbench": "^8.0",

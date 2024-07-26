@@ -8,7 +8,7 @@ as converting and formatting exceptions to JSON responses.
 
 ## Talablar (Requirements)
 
-- PHP ^7.4|8.1
+- PHP ^8.1
 - Laravel ^10 | ^11
 
 ## Talqinlar mutonosibligi (Version Compatibility)

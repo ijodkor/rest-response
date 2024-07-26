@@ -3,7 +3,6 @@
 namespace Ijodkor\ApiResponse\Supporters;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator as Paginator;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ListPaginator extends LengthAwarePaginator {
@@ -13,7 +12,7 @@ class ListPaginator extends LengthAwarePaginator {
      */
     private string $key;
 
-    public function __construct(Paginator|ResourceCollection $paginator, string $key = "data") {
+    public function __construct(Paginator $paginator, string $key = "data") {
         $this->key = $key;
 
         $options = ['path' => $paginator->path()];
