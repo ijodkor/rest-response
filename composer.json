@@ -23,12 +23,12 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "illuminate/contracts": "^v10.48.16"
+        "php": "^8.2",
+        "illuminate/contracts": "^v11.17.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0",
-        "phpunit/phpunit": "^10.0"
+        "orchestra/testbench": "^v9.2.0",
+        "phpunit/phpunit": "^11.2.8"
     },
     "extra": {
         "laravel": {
