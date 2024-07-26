@@ -2,9 +2,9 @@
 
 namespace Ijodkor\ApiResponse\Responses;
 
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Ijodkor\ApiResponse\Supporters\ListPaginator;
 
 trait RestResponse {
@@ -118,9 +118,7 @@ trait RestResponse {
 
         return response()->json([
             'status' => true,
-            'data' => [
-                $key => $data
-            ],
+            'data' => $data,
             'message' => $message,
         ]);
     }
