@@ -24,10 +24,10 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/contracts": "^v11.17.0"
+        "illuminate/contracts": "^v11.1.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^v9.2.0",
+        "orchestra/testbench": "^v9.0.1",
         "phpunit/phpunit": "^11.2.8"
     },
     "extra": {
