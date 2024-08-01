@@ -2,7 +2,6 @@
 
 namespace Ijodkor\ApiResponse\Supporters;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ListPaginator extends LengthAwarePaginator {
@@ -12,7 +11,7 @@ class ListPaginator extends LengthAwarePaginator {
      */
     private string $key;
 
-    public function __construct(Paginator $paginator, string $key = "data") {
+    public function __construct($paginator, string $key = "data") {
         $this->key = $key;
 
         $options = ['path' => $paginator->path()];

@@ -2,9 +2,8 @@
 
 namespace Ijodkor\ApiResponse\Responses;
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Http\JsonResponse;
 use Ijodkor\ApiResponse\Supporters\ListPaginator;
+use Illuminate\Http\JsonResponse;
 
 trait RestResponse {
 
@@ -43,7 +42,7 @@ trait RestResponse {
      * @param int $status
      * @return JsonResponse
      */
-    protected function fail($errors = [], string $message = 'Muvaffaqiyatsiz', int $status = 400): JsonResponse {
+    protected function fail(mixed $errors = [], string $message = 'Muvaffaqiyatsiz', int $status = 400): JsonResponse {
         return response()->json([
             'success' => false,
             'errors' => $errors,
@@ -85,7 +84,7 @@ trait RestResponse {
      * @param string $message
      * @return JsonResponse
      */
-    protected function result($data = [], string $message = 'Muvaffaqiyatli'): JsonResponse {
+    protected function result(mixed $data = [], string $message = 'Muvaffaqiyatli'): JsonResponse {
         return response()->json([
             'success' => true,
             'data' => $data,
@@ -103,12 +102,12 @@ trait RestResponse {
 
     /**
      * Returned paginated response
-     * @param LengthAwarePaginator $data
+     * @param mixed $data
      * @param string $key
      * @param string|null $message
      * @return JsonResponse
      */
-    protected function paginated(LengthAwarePaginator $data, string $key, ?string $message = 'Muvaffaqiyatli'): JsonResponse {
+    protected function paginated(mixed $data, string $key, ?string $message = 'Muvaffaqiyatli'): JsonResponse {
         return response()->json([
             'status' => true,
             'data' => new ListPaginator($data, $key),

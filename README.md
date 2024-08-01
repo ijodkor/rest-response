@@ -80,3 +80,4 @@ class UserRequest extends RestRequest {
 # Foydali havolalar (Links)
 
 - [Create Laravel package](https://laravel-news.com/building-your-own-laravel-packages)
+- [Create package](https://medium.com/@prevailexcellent/how-i-created-my-third-laravel-package-step-by-step-guide-ad3fb0da5399)
