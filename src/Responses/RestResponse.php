@@ -117,7 +117,7 @@ trait RestResponse {
         }
 
         return response()->json([
-            'status' => true,
+            'success' => true,
             'data' => $data,
             'message' => $message,
         ]);
