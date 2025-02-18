@@ -48,7 +48,7 @@ class UserController extends Controller {
 }
 ```
 
-### Mavjuda funksiyalar (Available functions)
+### Mavjud funksiyalar (Available functions)
 
 | Nomi (name)  |         Izoh (description)         | Status |
 |:-------------|:----------------------------------:|-------:|
