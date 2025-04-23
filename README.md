@@ -57,7 +57,7 @@ class UserController extends Controller {
 | created      |                        Muvaffaqiyatli                         |    201 |
 | fail         |                     Xatolik yuz berganda                      |  [400] |
 | error        |                         Ichki xatolik                         |    500 |
-| unAuthorized |                   Manzil ruxsat yo&#8216;q                    |  [401] |
+| unAuthorized |                  Manzilga ruxsat yo&#8216;q                   |  [401] |
 | result       |              Javobda raqam va satrlar moslangan               |    200 |
 | paginated    |                   Sahiflangan ro&#8216;yxat                   |    200 |
 | paged        | Sahiflangan ro&#8216;yxat (qo&#8216;shimcha maydonlari bilan) |    200 |
