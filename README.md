@@ -28,7 +28,8 @@ composer require ijodkor/laravel-api-response
 
 ## Ishlatish (Usage)
 
-Add RestResponse trait to app module Controller file or any controller which is needed
+RestResponse trait faylini asosiy Controller fayliga yoki kerakli Controller fayliga qo&#8216;shish <br>
+(Add RestResponse trait to app module Controller file or any controller which is needed)
 
 ```php
 use Ijodkor\ApiResponse\Responses\RestResponse;
@@ -40,7 +41,7 @@ class Controller extends Controller {
 ...
 
 class UserController extends Controller {
-    public function () {
+    public function show() {
         return $this->success([
             'user' => new User();
         ]);
@@ -50,15 +51,16 @@ class UserController extends Controller {
 
 ### Mavjud funksiyalar (Available functions)
 
-| Nomi (name)  |         Izoh (description)         | Status |
-|:-------------|:----------------------------------:|-------:|
-| success      |           Muvaffaqiyatli           |    200 |
-| created      |           Muvaffaqiyatli           |    201 |
-| fail         |        Xatolik yuz berganda        |  [400] |
-| error        |           Ichki xatolik            |    500 |
-| unAuthorized |      Manzil ruxsat yo&#8216;q      |  [401] |
-| result       | Javobda raqam va satrlar moslangan |    200 |
-| paginated    |     Sahiflangan ro&#8216;yxat      |    200 |
+| Nomi (name)  |                      Izoh (description)                       | Status |
+|:-------------|:-------------------------------------------------------------:|-------:|
+| success      |                        Muvaffaqiyatli                         |    200 |
+| created      |                        Muvaffaqiyatli                         |    201 |
+| fail         |                     Xatolik yuz berganda                      |  [400] |
+| error        |                         Ichki xatolik                         |    500 |
+| unAuthorized |                   Manzil ruxsat yo&#8216;q                    |  [401] |
+| result       |              Javobda raqam va satrlar moslangan               |    200 |
+| paginated    |                   Sahiflangan ro&#8216;yxat                   |    200 |
+| paged        | Sahiflangan ro&#8216;yxat (qo&#8216;shimcha maydonlari bilan) |    200 |
 
 ### Sovg&#8216;a (Bonus)
 
@@ -70,6 +72,55 @@ use Ijodkor\ApiResponse\Requests\RestRequest;
 // class UserRequest extends FormRequest - x
 class UserRequest extends RestRequest {
 
+}
+```
+
+PaginationRequest
+
+```php
+use Ijodkor\ApiResponse\Requests\PaginationRequest;
+
+// class UserRequest extends FormRequest - xxx
+class UserRequest extends PaginationRequest {
+
+}
+```
+
+### Kengaytirish (Extend)
+
+
+```php
+use Ijodkor\ApiResponse\Requests\BuilderPaginator;
+
+class UserService {
+    
+    public function all() {
+        // Paginate users
+        $users = User::query()->paginate();
+        $items = $users->items();
+        
+        // Change content of paginated list
+        $data = collect($items)->map(function(User $user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+            ];
+        });
+        
+        return new BuilderPaginator($users, $data);
+    }
+}
+
+
+class UserController extends Controller {
+    ...
+    
+    public function show() {
+        $users = $this->service->all();
+        
+        // paged/paginated
+        return $this->paged('users', $users, []);
+    }
 }
 ```
 

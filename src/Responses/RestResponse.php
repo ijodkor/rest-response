@@ -2,6 +2,7 @@
 
 namespace Ijodkor\ApiResponse\Responses;
 
+use Ijodkor\ApiResponse\Supporters\IterationPaginator;
 use Ijodkor\ApiResponse\Supporters\ListPaginator;
 use Illuminate\Http\JsonResponse;
 
@@ -17,7 +18,7 @@ trait RestResponse {
         return response()->json([
             'success' => true,
             'data' => [...$data],
-            'message' => $message
+            'msg' => $message
         ]);
     }
 
@@ -31,7 +32,7 @@ trait RestResponse {
         return response()->json([
             'success' => true,
             'data' => [...$data],
-            'message' => $message
+            'msg' => $message
         ], 201);
     }
 
@@ -46,7 +47,7 @@ trait RestResponse {
         return response()->json([
             'success' => false,
             'errors' => $errors,
-            'message' => $message
+            'msg' => $message
         ], $status);
     }
 
@@ -60,7 +61,7 @@ trait RestResponse {
         return response()->json([
             'success' => false,
             'errors' => $errors,
-            'message' => $message
+            'msg' => $message
         ], 500);
     }
 
@@ -72,7 +73,7 @@ trait RestResponse {
     protected function unAuthorized(string $message = "Kirishga ruxsat berilmagan"): JsonResponse {
         return response()->json([
             'success' => false,
-            'message' => $message
+            'msg' => $message
         ], 401);
     }
 
@@ -88,7 +89,7 @@ trait RestResponse {
         return response()->json([
             'success' => true,
             'data' => $data,
-            'message' => $message
+            'msg' => $message
         ], options: JSON_NUMERIC_CHECK);
     }
 
@@ -111,7 +112,23 @@ trait RestResponse {
         return response()->json([
             'status' => true,
             'data' => new ListPaginator($data, $key),
-            'message' => $message
+            'msg' => $message
+        ]);
+    }
+
+    /**
+     * Returned paginated response
+     * @param string $key
+     * @param mixed $data
+     * @param array $extra
+     * @param string $message
+     * @return JsonResponse
+     */
+    protected function paged(string $key, mixed $data, array $extra = [], string $message = 'Muvaffaqiyatli'): JsonResponse {
+        return response()->json([
+            'status' => true,
+            'data' => new IterationPaginator($key, $data, $extra),
+            'msg' => $message
         ]);
     }
 }
