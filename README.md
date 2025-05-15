@@ -17,6 +17,7 @@ as converting and formatting exceptions to JSON responses.
 |:--------|:---------------------|
 | 10.x    | 1.x                  |
 | 11.x    | 1.2.x                |
+| 12.x    | 1.3.x                |
 
 ## O&#8216;rnatish (Installation)
 
